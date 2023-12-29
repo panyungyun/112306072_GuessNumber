@@ -7,37 +7,38 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-  }
-  
-  .container {
+}
+
+.container {
     text-align: center;
-  }
-  
-  h1 {
+    max-width: 400px; /* Optional: Set a maximum width for the container */
+    margin: auto; /* Center the container horizontally */
+}
+
+h1 {
     color: #333;
-  }
-  
-  input {
+}
+
+input {
     padding: 8px;
     font-size: 16px;
-  }
-  
-  button {
+}
+
+button {
     padding: 8px 16px;
     font-size: 16px;
     background-color: #4caf50;
     color: white;
     border: none;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #45a049;
-  }
-  
-  #result {
+}
+
+#result {
     font-weight: bold;
     margin-top: 20px;
     color: #333;
-  }
-  
+}
