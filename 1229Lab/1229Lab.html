@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <div class="container">
+        <h1>Guess the Number Game</h1>
+        <label for="userGuess">Enter your guess:</label>
+        <input type="number" id="userGuess" />
+        <button onclick="checkGuess()">Submit Guess</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Global variables
+        let secretNumber = generateRandomNumber();
+
+        // Function to generate a random number between 1 and 10
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        // Function to check the user's guess
+        function checkGuess() {
+            let userGuess = document.getElementById("userGuess").value;
+            let resultElement = document.getElementById("result");
+
+            if (userGuess == secretNumber) {
+                resultElement.innerHTML = "Congratulations! You guessed the correct number!";
+                showImageAndPlaySound("picture2.jpeg", "music2.mp3");
+                secretNumber = generateRandomNumber(); // Generate a new random number
+            } else {
+                resultElement.innerHTML = "Sorry, try again!";
+                showImageAndPlaySound("picture1.jpeg", "music1.mp3");
+            }
+
+            // Clear the input field for the next guess
+            document.getElementById("userGuess").value = "";
+        }
+
+        // Function to show image and play sound
+        function showImageAndPlaySound(imageSource, soundSource) {
+            let imageElement = document.createElement("img");
+            imageElement.src = imageSource;
+
+            let soundElement = document.createElement("audio");
+            soundElement.src = soundSource;
+            soundElement.autoplay = true;
+
+            let resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = "";
+            resultContainer.appendChild(imageElement);
+            resultContainer.appendChild(soundElement);
+        }
+        document.getElementById("userGuess").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            checkGuess();
+        }
+    });
+    </script>
+</body>
+</html>
